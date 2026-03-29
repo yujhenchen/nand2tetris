@@ -1,0 +1,85 @@
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not(in=sel, out=nsel0);
+    And(a=a[0], b=nsel0, out=x0);
+    And(a=b[0], b=sel,   out=y0);
+    Or(a=x0, b=y0, out=out[0]);
+
+    Not(in=sel, out=nsel1);
+    And(a=a[1], b=nsel1, out=x1);
+    And(a=b[1], b=sel,   out=y1);
+    Or(a=x1, b=y1, out=out[1]);
+
+    Not(in=sel, out=nsel2);
+    And(a=a[2], b=nsel2, out=x2);
+    And(a=b[2], b=sel,   out=y2);
+    Or(a=x2, b=y2, out=out[2]);
+
+    Not(in=sel, out=nsel3);
+    And(a=a[3], b=nsel3, out=x3);
+    And(a=b[3], b=sel,   out=y3);
+    Or(a=x3, b=y3, out=out[3]);
+
+    Not(in=sel, out=nsel4);
+    And(a=a[4], b=nsel4, out=x4);
+    And(a=b[4], b=sel,   out=y4);
+    Or(a=x4, b=y4, out=out[4]);
+
+    Not(in=sel, out=nsel5);
+    And(a=a[5], b=nsel5, out=x5);
+    And(a=b[5], b=sel,   out=y5);
+    Or(a=x5, b=y5, out=out[5]);
+
+    Not(in=sel, out=nsel6);
+    And(a=a[6], b=nsel6, out=x6);
+    And(a=b[6], b=sel,   out=y6);
+    Or(a=x6, b=y6, out=out[6]);
+
+    Not(in=sel, out=nsel7);
+    And(a=a[7], b=nsel7, out=x7);
+    And(a=b[7], b=sel,   out=y7);
+    Or(a=x7, b=y7, out=out[7]);
+
+    Not(in=sel, out=nsel8);
+    And(a=a[8], b=nsel8, out=x8);
+    And(a=b[8], b=sel,   out=y8);
+    Or(a=x8, b=y8, out=out[8]);
+
+    Not(in=sel, out=nsel9);
+    And(a=a[9], b=nsel9, out=x9);
+    And(a=b[9], b=sel,   out=y9);
+    Or(a=x9, b=y9, out=out[9]);
+
+    Not(in=sel, out=nsel10);
+    And(a=a[10], b=nsel10, out=x10);
+    And(a=b[10], b=sel,    out=y10);
+    Or(a=x10, b=y10, out=out[10]);
+
+    Not(in=sel, out=nsel11);
+    And(a=a[11], b=nsel11, out=x11);
+    And(a=b[11], b=sel,    out=y11);
+    Or(a=x11, b=y11, out=out[11]);
+
+    Not(in=sel, out=nsel12);
+    And(a=a[12], b=nsel12, out=x12);
+    And(a=b[12], b=sel,    out=y12);
+    Or(a=x12, b=y12, out=out[12]);
+
+    Not(in=sel, out=nsel13);
+    And(a=a[13], b=nsel13, out=x13);
+    And(a=b[13], b=sel,    out=y13);
+    Or(a=x13, b=y13, out=out[13]);
+
+    Not(in=sel, out=nsel14);
+    And(a=a[14], b=nsel14, out=x14);
+    And(a=b[14], b=sel,    out=y14);
+    Or(a=x14, b=y14, out=out[14]);
+
+    Not(in=sel, out=nsel15);
+    And(a=a[15], b=nsel15, out=x15);
+    And(a=b[15], b=sel,    out=y15);
+    Or(a=x15, b=y15, out=out[15]);
+}
