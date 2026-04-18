@@ -79,17 +79,28 @@ D=A
 @pointer
 M=D
 
+(FILL_LOOP)
 // calculate D
+@pointer
+D=M
+@KBD
+D=D-M
 
 @EXIT
 D;JEQ
 
+// fill the screen
+@pointer
+A=M
+M=-1
+// pointer++
+@pointer
+M=M+1
+
 @FILL_LOOP
-D;JEQ
-
-(FILL_LOOP)
+0;JMP
 
 
-// jump tp loop
+// jump to main loop
 @LOOP
 0;JMP
