@@ -38,13 +38,6 @@ M=D
 // label for inner loop clear screen
 (CLEAR_LOOP)
 
-// select the pointer variable , now A = address of variable "pointer"
-@pointer
-// make A become the value stored in pointer
-A=M
-// clear the memory at RAM[pointer]
-M=0
-
 // select the pointer, so that M is the value of the memory that stores in pointer
 // (which points to the current screen memory),
 // and load the memory value into D register
@@ -52,11 +45,18 @@ M=0
 D=M
 // D = pointer - KBD
 @KBD
-D=D-M
+D=D-A
 // has the pointer reached the keyboard memory boundary? (D-M is 0 or not)
 // (if pointer == KBD → we reached end of screen memory → exit loop)
 @EXIT
-D;JEQ
+D;JGE
+
+// select the pointer variable , now A = address of variable "pointer"
+@pointer
+// make A become the value stored in pointer
+A=M
+// clear the memory at RAM[pointer]
+M=0
 
 // else, increase the value of pointer and write it back to pointer
 @pointer
@@ -84,15 +84,16 @@ M=D
 @pointer
 D=M
 @KBD
-D=D-M
-
+D=D-A
+// exit check should be in the loop cycle
 @EXIT
-D;JEQ
+D;JGE
 
 // fill the screen
 @pointer
 A=M
 M=-1
+
 // pointer++
 @pointer
 M=M+1
